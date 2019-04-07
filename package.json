@@ -1,0 +1,17 @@
+{
+  "name": "parallel-programming-coursework",
+  "version": "0.0.1",
+  "description": "Coursework for my Parallel Programming module at University. Final Year.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "simple": "node sequential.js",
+    "socket": "nodemon server.js 8000"
+  },
+  "author": "James Wallis",
+  "license": "ISC",
+  "dependencies": {
+    "socket.io": "^2.2.0",
+    "socket.io-client": "^2.2.0"
+  }
+}
