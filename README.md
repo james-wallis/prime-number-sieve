@@ -11,7 +11,7 @@ Using the different sieves and methods, I am able to calculate different paralle
 ## Sieves
 There are two sieves that are available to use.
 1. Simple sieve (Iterates through all numbers and adds them to the list if they are a Prime)
-2. Eratosthenes sieve ((Wikipedia)[https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes])
+2. Eratosthenes sieve ( (Wikipedia)[https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes] )
 
 ## Methods
 There are three different methods for running the sieves
@@ -43,7 +43,7 @@ Value of N:
 2. 100,000,000 (5,761,455 prime numbers)
 
 | Sieve             | Method       |      10,000,000 |                    100,000,000 |
-| ------------------|--------------|----------------:|-------------------------------:|
+| :-----------------|:-------------|----------------:|-------------------------------:|
 | **Simple**        | Sequential   |     10252.162ms |      270422.741ms (>4 minutes) |
 |                   | Web Sockets  |      5252.304ms |      140995.694ms (>2 minutes) |
 |                   | Parallel     |      5207.163ms |      165514.748ms (>2 minutes) |
