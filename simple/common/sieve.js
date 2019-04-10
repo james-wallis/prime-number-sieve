@@ -1,8 +1,9 @@
-const getAllPrimeNumbers = async (start, end) => {
+const sieve = async (start, end) => {
   const primeNumberList = [];
   // 0 and 1 are not prime numbers
   for (let i = start; i < end; i++) {
     if (await testPrime(i)) primeNumberList.push(i);
+    // if (i % 1000000 === 0) console.log('i', i);
   }
   return primeNumberList;
 }
@@ -19,4 +20,4 @@ const testPrime = (numberToTest) => {
   return isPrime;
 }
 
-module.exports = getAllPrimeNumbers;
+module.exports = sieve;

@@ -1,13 +1,21 @@
 const server = require('http').createServer();
-const io = require('socket.io')(server);
+// Massive pingInterval and Timeout so the socket 
+// client doesn't disconnect while doing calculations
+const io = require('socket.io')(server, {
+  pingInterval: 10000000,
+  pingTimeout: 50000000,
+});
 const port = process.argv[2] || 8080;
-const createSocketClient = require('./createSocketClient')
+const createSocketClient = require('../../utilities/createWorker')
+const orderArray = require('../../utilities/orderArray')
 
-const showSocketProcessLogs = false;
+const { endNumber, worker } = require('../../config');
 
 let primeNumberList = [];
 
 const main = async (n, noClients) => {
+  console.log('Simple Sieve: Sockets');
+  console.time('Simple Sieve - Web Sockets (Full program)');
   createSocketEvents(n, noClients);
   server.listen(port);
   // Run client scripts to create socket.io-clients
@@ -23,6 +31,8 @@ const createSocketEvents = (n, noClients) => {
     });
 
     socket.on('results', data => {
+      console.log('result received')
+      console.log(primeNumberList.length, noClients);
       primeNumberList.push(data);
       if (primeNumberList.length === noClients) sortPrimeNumberList();
     })
@@ -32,34 +42,34 @@ const createSocketEvents = (n, noClients) => {
 const createClients = async (noClients) => {
   const promises = [];
   for (let i = 0; i < noClients; i++) {
-    promises.push(createSocketClient('node', ['client.js', port], showSocketProcessLogs));
+    promises.push(createSocketClient('node', ['./client.js', port], __dirname, worker.logs));
   }
   Promise.all(promises);
 }
 
 const startPrimeCalculation = (n, clients, noClients) => {
-  console.time('getAllPrimeNumbersWebSockets');
+  console.time('Simple Sieve - Web Sockets (Calculations only)')
   let start = 2;
-  let end = n / noClients;
+  let end = Math.floor(n / noClients);
   clients.forEach(client => {
     io.to(client).emit('calculate', start, end)
     start = end;
-    end += n / noClients;
+    end += Math.floor(n / noClients);
   });
 }
 
 const sortPrimeNumberList = () => {
   console.log('sortPrimeNumberList');
-  let temp = primeNumberList[0];
-  for (let i = 1; i < primeNumberList.length; i++) {
-    if (temp[0] < primeNumberList[i][0]) temp = temp.concat(primeNumberList[i]);
-    else temp = primeNumberList[i].concat(temp);
-  }
-  primeNumberList = temp;
+  primeNumberList = orderArray(primeNumberList);
   console.log(primeNumberList);
-  console.timeEnd('getAllPrimeNumbersWebSockets'); 
+  console.log('Number of Primes: ', primeNumberList.length);
+  console.timeEnd('Simple Sieve - Web Sockets (Calculations only)')
+  console.timeEnd('Simple Sieve - Web Sockets (Full program)')
+  server.close();
 }
 
+
+
 // prime number, number of socket clients
-main(10000000, 4);
+main(endNumber, worker.number)
 

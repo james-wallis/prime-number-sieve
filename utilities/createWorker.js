@@ -1,8 +1,8 @@
 const { spawn } = require('child_process');
 
-const create = (command, parameters, showLogs = true) => {
+const create = (command, parameters, directory, showLogs = true) => {
   return new Promise((resolve, reject) => {
-    const client = spawn(command, parameters);
+    const client = spawn(command, parameters, { cwd: directory });
     client.stdout.on('data', (data) => {
       if (showLogs) console.log(`stdout: ${data}\n`);
     });
