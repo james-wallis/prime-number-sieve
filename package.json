@@ -4,12 +4,12 @@
   "description": "Coursework for my Parallel Programming module at University. Final Year.",
   "main": "server.js",
   "scripts": {
-    "simple-seq": "node ./simple/sequential/main.js",
-    "simple-socket": "node ./simple/socket/main.js ",
-    "simple-parallel": "node --experimental-worker ./simple/parallel/main.js",
-    "erato-seq": "node ./eratosthenes/sequential/main.js",
-    "erato-socket": "node ./eratosthenes/socket/main.js",
-    "erato-parallel": "node --experimental-worker ./eratosthenes/parallel/main.js"
+    "simple-seq": "node --max-old-space-size=8192 ./simple/sequential/main.js",
+    "simple-socket": "node --max-old-space-size=8192 ./simple/socket/main.js ",
+    "simple-parallel": "node --max-old-space-size=8192 --experimental-worker ./simple/parallel/main.js",
+    "erato-seq": "node --max-old-space-size=8192 ./eratosthenes/sequential/main.js",
+    "erato-socket": "node --max-old-space-size=8192 ./eratosthenes/socket/main.js",
+    "erato-parallel": "node --max-old-space-size=8192 --experimental-worker ./eratosthenes/parallel/main.js"
   },
   "author": "James Wallis",
   "license": "ISC",

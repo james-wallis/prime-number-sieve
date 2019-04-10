@@ -5,7 +5,7 @@ const orderArray = require('../../utilities/orderArray')
 const { endNumber, worker } = require('../../config');
 
 const main = async (n, noClients) => {
-  console.log('Eratosthenes Sieve: Sockets');
+  console.log('Eratosthenes Sieve: Parallel');
   console.time('Eratosthenes Sieve - Parallel');
 
   const promises = [];

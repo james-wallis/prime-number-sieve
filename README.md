@@ -39,15 +39,16 @@ Note: To run the parallel methods you must have atleast Node.js v10.5.0 or highe
 ## Benchmarking
 Number of socket-clients/threads used: 4
 Value of N: 
-1. 10,000,000 (664,579 prime numbers)
-2. 100,000,000 (5,761,455 prime numbers)
+1. 1,000,000 (78,498 prime numbers)
+2. 10,000,000 (664,579 prime numbers)
+3. 100,000,000 (5,761,455 prime numbers)
 
-| Sieve             | Method       |      10,000,000 |                    100,000,000 |
-| :-----------------|:-------------|----------------:|-------------------------------:|
-| **Simple**        | Sequential   |     10252.162ms |      270422.741ms (>4 minutes) |
-|                   | Web Sockets  |      5252.304ms |      140995.694ms (>2 minutes) |
-|                   | Parallel     |      5207.163ms |      165514.748ms (>2 minutes) |
-| **Eratosthenes**  | Sequential   |       688.525ms |  JavaScript heap out of memory |
-|                   | Web Sockets  |       633.511ms |         7146.561ms (7 seconds) |
-|                   | Parallel     |        429.023ms|          2999.043ms (3 seconds)|
+| Sieve             | Method       |      1,000,000|      10,000,000 |                    100,000,000 |
+|:------------------|:-------------|--------------:|----------------:|-------------------------------:|
+| **Simple**        | Sequential   |     510.919ms |     10252.162ms |      270422.741ms (>4 minutes) |
+|                   | Web Sockets  |     508.195ms |      5252.304ms |      140995.694ms (>2 minutes) |
+|                   | Parallel     |     452.993ms |      5207.163ms |      165514.748ms (>2 minutes) |
+| **Eratosthenes**  | Sequential   |     121.200ms |       688.525ms |         9524.606ms (9 seconds) |
+|                   | Web Sockets  |     248.153ms |       633.511ms |         7146.561ms (7 seconds) |
+|                   | Parallel     |     229.550ms |        429.023ms|          2999.043ms (3 seconds)|
 
