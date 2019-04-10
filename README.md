@@ -38,6 +38,7 @@ Note: To run the parallel methods you must have atleast Node.js v10.5.0 or highe
 
 ## Benchmarking
 Number of socket-clients/threads used: 4
+
 Value of N: 
 1. 1,000,000 (78,498 prime numbers)
 2. 10,000,000 (664,579 prime numbers)
