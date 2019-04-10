@@ -11,7 +11,7 @@ Using the different sieves and methods, I am able to calculate different paralle
 ## Sieves
 There are two sieves that are available to use.
 1. Simple sieve (Iterates through all numbers and adds them to the list if they are a Prime)
-2. Eratosthenes sieve ( (Wikipedia)[https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes] )
+2. Eratosthenes sieve ([Wikipedia](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes))
 
 ## Methods
 There are three different methods for running the sieves
@@ -36,7 +36,7 @@ To change either the value of N or the number of threads, change their values in
 
 Note: To run the parallel methods you must have atleast Node.js v10.5.0 or higher as it is experimental and uses `--experimental-worker` to run. 
 
-### Benchmarking
+## Benchmarking
 Number of socket-clients/threads used: 4
 Value of N: 
 1. 10,000,000 (664,579 prime numbers)
