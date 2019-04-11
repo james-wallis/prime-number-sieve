@@ -1,7 +1,7 @@
 module.exports = {
-  endNumber: 1000000,
+  endNumber: 100000000,
   worker: {
-    number: 4,
+    number: 8,
     logs: true
   }
 }
