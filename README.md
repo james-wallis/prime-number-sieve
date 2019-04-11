@@ -43,16 +43,18 @@ Value of N:
 3. 100,000,000 (5,761,455 prime numbers)
 
 Number of socket-clients/threads used: 2
+
 | Sieve             | Method       |      1,000,000|      10,000,000 |                    100,000,000 |
 |:------------------|:-------------|--------------:|----------------:|-------------------------------:|
-| **Simple**        | Sequential   |     510.919ms |     10252.162ms |      270422.741ms (>4.5 minutes) |
-|                   | Web Sockets  |     556.258ms |      7778.328ms |      163222.519ms (>2.5 minutes) |
-|                   | Parallel     |     442.381ms |      6436.658ms |      154567.071ms (>2.5 minutes) |
-| **Eratosthenes**  | Sequential   |     121.200ms |       688.525ms |                       9524.606ms |
-|                   | Web Sockets  |     111.508ms |       734.562ms |                       8974.723ms |
-|                   | Parallel     |     142.130ms |       445.349ms |                       3309.397ms |
+| **Simple**        | Sequential   |     510.919ms |     10252.162ms |    270422.741ms (>4.5 minutes) |
+|                   | Web Sockets  |     556.258ms |      7778.328ms |    163222.519ms (>2.5 minutes) |
+|                   | Parallel     |     442.381ms |      6436.658ms |    154567.071ms (>2.5 minutes) |
+| **Eratosthenes**  | Sequential   |     121.200ms |       688.525ms |                     9524.606ms |
+|                   | Web Sockets  |     111.508ms |       734.562ms |                     8974.723ms |
+|                   | Parallel     |     142.130ms |       445.349ms |                     3309.397ms |
 
 Number of socket-clients/threads used: 4
+
 | Sieve             | Method       |      1,000,000|      10,000,000 |                    100,000,000 |
 |:------------------|:-------------|--------------:|----------------:|-------------------------------:|
 | **Simple**        | Sequential   |     510.919ms |     10252.162ms |    270422.741ms (>4.5 minutes) |
@@ -65,6 +67,7 @@ Number of socket-clients/threads used: 4
 Number of socket-clients/threads used: 8
 _The number of threads used in the parallel implementation shouldn't make a difference as the benchmarking computer only has 4._
 _It is of interest, however, to see how the Web Socket implementation fares with 8 socket-clients to use._
+
 | Sieve             | Method       |      1,000,000|      10,000,000 |                    100,000,000 |
 |:------------------|:-------------|--------------:|----------------:|-------------------------------:|
 | **Simple**        | Sequential   |     510.919ms |     10252.162ms |    270422.741ms (>4.5 minutes) |
