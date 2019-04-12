@@ -61,10 +61,11 @@ Number of socket-clients/threads used: 4
 |                   | Web Sockets  |     508.195ms |      5252.304ms |    140995.694ms (>2.5 minutes) |
 |                   | Parallel     |     452.993ms |      5207.163ms |      123787.237ms (>2 minutes) |
 | **Eratosthenes**  | Sequential   |     121.200ms |       688.525ms |                     9524.606ms |
-|                   | Web Sockets  |     248.153ms |       633.511ms |                     7146.561ms |
-|                   | Parallel     |     229.550ms |        429.023ms|                     2999.043ms |
+|                   | Web Sockets  |     248.153ms |       633.511ms |                     6796.735ms |
+|                   | Parallel     |     229.550ms |        429.023ms|                     2287.759ms |
 
 Number of socket-clients/threads used: 8
+
 _The number of threads used in the parallel implementation shouldn't make a difference as the benchmarking computer only has 4._
 _It is of interest, however, to see how the Web Socket implementation fares with 8 socket-clients to use._
 
@@ -74,7 +75,7 @@ _It is of interest, however, to see how the Web Socket implementation fares with
 |                   | Web Sockets  |     688.403ms |      5281.018ms |      118286.530ms (<2 minutes) |
 |                   | Parallel     |     639.959ms |      5310.920ms |      122829.183ms (>2 minutes) |
 | **Eratosthenes**  | Sequential   |     121.200ms |       688.525ms |                     9524.606ms |
-|                   | Web Sockets  |     292.007ms |       732.005ms |                     5483.382ms |
-|                   | Parallel     |     367.499ms |       537.490ms |                     3335.598ms |
+|                   | Web Sockets  |     292.007ms |       732.005ms |                     4865.255ms |
+|                   | Parallel     |     367.499ms |       537.490ms |                     2325.793ms |
 
 Note: Benchmark tests run on a MacBook Pro 2015, 2.9 GHz Intel Core i5 (2 Cores + 2 Virtual), 8GB RAM.

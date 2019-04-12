@@ -13,6 +13,7 @@ const orderArray = require('../../utilities/orderArray')
 const { endNumber, worker } = require('../../config');
 
 let primeNumberList = [];
+let rootPrimes = [];
 
 const main = async (n, noClients) => {
   console.log('Eratosthenes Sieve: Web Sockets');
@@ -55,7 +56,7 @@ const startPrimeCalculation = (n, clients, noClients) => {
   if (sqRoot % 2 == 0) sqRoot = sqRoot + 1;
 
   // Get the first few primes to be used in the calculations
-  const rootPrimes = primes(sqRoot);
+  rootPrimes = primes(sqRoot);
 
   // Instruct workers to begin calculations and send variables
   for (var ctr = 0; ctr < noClients; ctr++) {
@@ -75,7 +76,7 @@ const sortPrimeNumberList = (n) => {
   let sqRoot = Math.floor(Math.sqrt(n));
   if (sqRoot % 2 == 0) sqRoot = sqRoot + 1;
   // Create the final list, adding 2 to the front
-  primeNumberList = [2].concat(primes(sqRoot).concat(primeNumberList));
+  primeNumberList = [2].concat(rootPrimes.concat(primeNumberList));
   console.log(primeNumberList);
   console.log('Number of Primes: ', primeNumberList.length);
   console.timeEnd('Eratosthenes Sieve - Web Sockets (Calculations only)');

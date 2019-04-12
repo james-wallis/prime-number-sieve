@@ -30,7 +30,7 @@ const main = async (n, noClients) => {
   const result = await Promise.all(promises);
   let primeNumberList = orderArray(result);
   // Create the final list, adding 2 to the front
-  primeNumberList = [2].concat(primes(sqRoot).concat(primeNumberList));
+  primeNumberList = [2].concat(rootPrimes.concat(primeNumberList));
   console.log(primeNumberList);
   console.log('Number of Primes: ', primeNumberList.length);
   console.timeEnd('Eratosthenes Sieve - Parallel');
